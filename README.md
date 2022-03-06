@@ -46,10 +46,17 @@ python3 main.py
     ├── __init__.py
     ├── models.py
     ├── static
+    │   └── index.js
     ├── templates
+    │   ├── base.html
+    │   ├── home.html
+    │   ├── login.html
+    │   ├── logout.html
+    │   └── sign_up.html
     └── views.py
 
-3 directories, 6 files
+3 directories, 12 files
+
 ```
 
 
