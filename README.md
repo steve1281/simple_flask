@@ -1,4 +1,9 @@
+# simple user authenticated flask web site.
+
+
 ## references
+
+This is my interpretation of :
 
 ```
 https://www.youtube.com/watch?v=dam0GPOAvVI
@@ -58,5 +63,22 @@ python3 main.py
 3 directories, 12 files
 
 ```
+
+## looking at the database
+
+```
+(venv) steve@minty:~/projects/webserver/website$ sqlite3 database.db
+SQLite version 3.31.1 2020-01-27 19:55:54
+Enter ".help" for usage hints.
+sqlite> .tables
+note  user
+sqlite> select * from note;
+1|Note 1|2022-03-06 22:18:51|1
+3|Note 3|2022-03-06 22:19:03|1
+sqlite> select * from user;
+1|steve1281@hotmail.com|sha256$dQdevwDJtW6eJ9zZ$659027747e1d8425aea3b2b71090dea0c0418c1e559f3f8062449ed2177ea7ab|Steve
+sqlite> .quit
+```
+
 
 
