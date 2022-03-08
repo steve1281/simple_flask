@@ -3,13 +3,13 @@
 
 ## references
 
-This is my interpretation of :
+This is my interpretation of :  https://www.youtube.com/watch?v=dam0GPOAvVI
 
-```
-https://www.youtube.com/watch?v=dam0GPOAvVI
+## Notes: 
 
-Note: he is using vscode in a windows environment; I am using Linux and vim.
-```
+* Original author uses vscode in a windows environment; I am using Linux and vim.
+* Mac system app ControlCenter uses port 5000 which is flasks default. I set it manually to 5001.
+ 
 
 ## environment
 ```
@@ -33,10 +33,10 @@ python3 main.py
 
 ## testing
 ```
-   39  curl -X GET http://127.0.0.1:5000/
-   43  curl -X GET http://127.0.0.1:5000/login
-   44  curl -X GET http://127.0.0.1:5000/logout
-   46  curl -X GET http://127.0.0.1:5000/sign-up
+   39  curl -X GET http://127.0.0.1:5001/
+   43  curl -X GET http://127.0.0.1:5001/login
+   44  curl -X GET http://127.0.0.1:5001/logout
+   46  curl -X GET http://127.0.0.1:5001/sign-up
 ```
 
 ## directory (this checkin)
@@ -88,7 +88,7 @@ sqlite> .quit
 Login with:
 
 ```
-steve@minty:~/Desktop$ curl "http://localhost:5000/login" -H "Content-Type: application/x-www-form-urlencoded" -d "email=steve1281%40hotmail.com&password=1234" -X POST -c cookies.txt
+steve@minty:~/Desktop$ curl "http://localhost:5001/login" -H "Content-Type: application/x-www-form-urlencoded" -d "email=steve1281%40hotmail.com&password=1234" -X POST -c cookies.txt
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <title>Redirecting...</title>
 <h1>Redirecting...</h1>
@@ -98,7 +98,7 @@ steve@minty:~/Desktop$ curl "http://localhost:5000/login" -H "Content-Type: appl
 * then you can access via the cookie you created:
 
 ```
-steve@minty:~/Desktop$ curl "http://localhost:5000/" -b cookies.txt 
+steve@minty:~/Desktop$ curl "http://localhost:5001/" -b cookies.txt 
 <!DOCTYPE html>
 <html>
 ...
