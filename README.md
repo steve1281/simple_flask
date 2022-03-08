@@ -81,4 +81,55 @@ sqlite> .quit
 ```
 
 
+## curl hax
+
+* assuming an email of steve1281@hotmail.com and a password of 1234
+
+Login with:
+
+```
+steve@minty:~/Desktop$ curl "http://localhost:5000/login" -H "Content-Type: application/x-www-form-urlencoded" -d "email=steve1281%40hotmail.com&password=1234" -X POST -c cookies.txt
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href="/">/</a>. If not click the link.
+```
+
+* then you can access via the cookie you created:
+
+```
+steve@minty:~/Desktop$ curl "http://localhost:5000/" -b cookies.txt 
+<!DOCTYPE html>
+<html>
+...
+				
+				<div class="alert alert-success alter-dismissable fade show" role="alert">
+					Logged in successfully
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				
+...			
+			
+<h1 align="center">
+	Notes
+</h1>
+<ul class="list-group list-group-flush id="notes">
+	   
+	   <li class="list-group-item">Note 1
+		   <button type="button" class="close" onClick="deleteNote(1)">
+			<span aria-hidden="true">&times;</span>
+		   </button>
+	   </li>
+	   
+	   <li class="list-group-item">Note 3
+		   <button type="button" class="close" onClick="deleteNote(3)">
+			<span aria-hidden="true">&times;</span>
+		   </button>
+	   </li>
+	   
+</ul>
+...
+```
 
