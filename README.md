@@ -9,6 +9,7 @@ This is my interpretation of :  https://www.youtube.com/watch?v=dam0GPOAvVI
 
 * Original author uses vscode in a windows environment; I am using Linux and vim.
 * Mac system app ControlCenter uses port 5000 which is flasks default. I set it manually to 5001.
+* switched over to adhoc ssl (mar 8)
  
 
 ## environment
@@ -19,6 +20,14 @@ This is my interpretation of :  https://www.youtube.com/watch?v=dam0GPOAvVI
 ```
 
 ## pips
+
+* march 9, I added:
+
+```
+  578  pip install wheel
+  580  pip install --upgrade pip
+  581  pip install cryptography
+```
 
 ```
    69  pip install flask
@@ -31,13 +40,23 @@ This is my interpretation of :  https://www.youtube.com/watch?v=dam0GPOAvVI
 python3 main.py
 ```
 
-## testing
+## testing (old)
 ```
    39  curl -X GET http://127.0.0.1:5001/
    43  curl -X GET http://127.0.0.1:5001/login
    44  curl -X GET http://127.0.0.1:5001/logout
    46  curl -X GET http://127.0.0.1:5001/sign-up
 ```
+
+## testing (with adhoc ssl) 
+
+```
+curl -k "https://localhost:5001/login" -H "Content-Type: application/x-www-form-urlencoded" -d "email=steve1281%40hotmail.com&password=1234" -X POST -c cookies.txt
+
+curl -k "https://localhost:5001/" -b cookies.txt
+
+```
+
 
 ## directory (this checkin)
 
@@ -81,7 +100,7 @@ sqlite> .quit
 ```
 
 
-## curl hax
+## curl hax (note: non-ssl version)
 
 * assuming an email of steve1281@hotmail.com and a password of 1234
 
